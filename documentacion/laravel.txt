@@ -1,0 +1,8 @@
+php artisan make:model Subscriber -mfsc
+php artisan migrate:fresh --seed
+
+QUEUE_CONNECTION=database
+php artisan queue:table
+php artisan migrate
+
+php artisan make:mail BienvenidaMail --markdown=emails.bienvenida

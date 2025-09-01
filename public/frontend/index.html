@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Subscribers</title>
+  <base href="/">
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.9/angular.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.9/angular-route.min.js"></script>
+
+  <!-- App -->
+  <script src="/frontend/app.js"></script>
+
+  <!-- Services -->
+  <script src="/frontend/services/subscriberService.js"></script>
+
+  <!-- Controllers -->
+  <script src="/frontend/controllers/subscriberListController.js"></script>
+  <script src="/frontend/controllers/subscriberCreateController.js"></script>
+</head>
+
+<body>
+  <h1>Subscribers App</h1>
+  <a href="/subscribers">Lista</a>
+  <a href="/subscribers-crear">Crear</a>
+
+  <div ng-view></div>
+</body>
+
+</html>
