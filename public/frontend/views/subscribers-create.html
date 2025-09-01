@@ -1,12 +1,16 @@
-<h2>Crear Suscriptor</h2>
-<form ng-submit="createSubscriber()">
-    <label>Nombre:</label>
-    <input type="text" ng-model="subscriber.name" required>
+<h2 class="titulo">Crear Suscriptor</h2>
 
-    <label>Email:</label>
-    <input type="email" ng-model="subscriber.email" required>
+<div class="cuerpo">
 
-    <button type="submit">Crear</button>
-</form>
+    <form ng-submit="createSubscriber()" class="formulario">
+        <label>Nombre:</label>
+        <input type="text" ng-model="subscriber.name" required>
 
-<p style="color:red;" ng-if="error">{{ error }}</p>
+        <label>Email:</label>
+        <input type="email" ng-model="subscriber.email" required>
+
+        <button type="submit">Crear</button>
+    </form>
+
+    <p ng-if="error">{{ error }}</p>
+</div>

@@ -1,0 +1,130 @@
+/* Contenedor general */
+.cuerpo {
+  margin: 20px auto;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+/* Título y botón principal */
+.titulo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 1.6em;
+  margin-bottom: 20px;
+}
+
+.boton_correos {
+  padding: 8px 16px;
+  background-color: #007bff;
+  border: none;
+  color: #fff;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.boton_correos:hover {
+  background-color: #0056b3;
+}
+
+/* Filtros */
+.filtros {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.filtros input[type="text"] {
+  flex: 1;
+  padding: 8px 12px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  font-size: 1em;
+}
+
+.boton_buscar,
+.boton_limpiar {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1em;
+  transition: background 0.3s;
+}
+
+.boton_buscar {
+  background-color: #28a745;
+  color: #fff;
+}
+
+.boton_buscar:hover {
+  background-color: #1e7e34;
+}
+
+.boton_limpiar {
+  background-color: #dc3545;
+  color: #fff;
+}
+
+.boton_limpiar:hover {
+  background-color: #b02a37;
+}
+
+/* Tabla */
+.tabla {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+}
+
+.tabla th,
+.tabla td {
+  border: 1px solid #ddd;
+  padding: 10px 12px;
+  text-align: left;
+}
+
+.tabla th {
+  background-color: #f0f0f0;
+  color: #333;
+}
+
+.tabla tr:nth-child(even) {
+  background-color: #fafafa;
+}
+
+.tabla tr:hover {
+  background-color: #f1f7ff;
+}
+
+/* Paginación */
+.paginacion {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 10px;
+  font-size: 1em;
+}
+
+.paginacion button {
+  padding: 6px 12px;
+  border: none;
+  border-radius: 5px;
+  background-color: #17a2b8;
+  color: #fff;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.paginacion button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.paginacion button:hover:not(:disabled) {
+  background-color: #117a8b;
+}

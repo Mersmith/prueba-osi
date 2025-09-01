@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Jobs\EnviarBienvenidaEmailJob;
 use App\Models\Subscriber;
 use Illuminate\Http\Request;
-use App\Jobs\EnviarBienvenidaEmailJob;
 
 class SubscriberController extends Controller
 {
@@ -17,6 +17,8 @@ class SubscriberController extends Controller
             $query->where('name', 'like', "%$search%")
                 ->orWhere('email', 'like', "%$search%");
         }
+
+        $query->orderBy('id', 'desc');
 
         $perPage = $request->get('per_page', 5);
         return $query->paginate($perPage);

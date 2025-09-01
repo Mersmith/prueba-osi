@@ -17,14 +17,20 @@
   <!-- Controllers -->
   <script src="/frontend/controllers/subscriberListController.js"></script>
   <script src="/frontend/controllers/subscriberCreateController.js"></script>
+
+  <!-- CSS externo -->
+  <link rel="stylesheet" href="/frontend/css/styles-layout.css">
+  <link rel="stylesheet" href="/frontend/css/styles-lista.css">
+  <link rel="stylesheet" href="/frontend/css/styles-crear.css">
 </head>
 
 <body>
-  <h1>Subscribers App</h1>
-  <a href="/subscribers">Lista</a>
-  <a href="/subscribers-crear">Crear</a>
+  <div class="menu">
+    <a href="/subscribers">Lista</a>
+    <a href="/subscribers-crear">Crear</a>
+  </div>
 
-  <div ng-view></div>
+  <div ng-view class="pagina"></div>
 </body>
 
 </html>
