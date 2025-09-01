@@ -21,8 +21,8 @@ class SubscriberFactory extends Factory
     {
 
         return [
-            'name' => $this->faker->name(),
-            'email' => $this->faker->unique()->safeEmail(),
+            'nombre' => $this->faker->name(),
+            'correo' => $this->faker->unique()->safeEmail(),
         ];
     }
 }

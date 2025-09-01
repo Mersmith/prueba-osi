@@ -2,20 +2,18 @@ var app = angular.module('myApp', ['ngRoute']);
 
 app.config(['$routeProvider', '$locationProvider', function ($routeProvider, $locationProvider) {
 
-  // Configuración de rutas
   $routeProvider
-    .when('/subscribers', {
-      templateUrl: '/frontend/views/subscribers-list.html',
-      controller: 'SubscriberListController'
+    .when('/suscriptores', {
+      templateUrl: '/frontend/views/suscriptores-lista.html',
+      controller: 'SuscriptorListaController'
     })
-    .when('/subscribers-crear', {
-      templateUrl: '/frontend/views/subscribers-create.html',
-      controller: 'SubscriberCreateController'
+    .when('/suscriptores-crear', {
+      templateUrl: '/frontend/views/suscriptores-crear.html',
+      controller: 'SuscriptorCrearController'
     })
     .otherwise({
-      redirectTo: '/subscribers'
+      redirectTo: '/suscriptores'
     });
 
-  // Habilitar URLs limpias (sin #!)
   $locationProvider.html5Mode(true);
 }]);

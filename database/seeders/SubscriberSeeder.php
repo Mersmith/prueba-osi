@@ -13,6 +13,6 @@ class SubscriberSeeder extends Seeder
      */
     public function run(): void
     {
-        Subscriber::factory()->count(2)->create();
+        Subscriber::factory()->count(10)->create();
     }
 }

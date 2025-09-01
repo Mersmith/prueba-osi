@@ -1,6 +1,5 @@
 <x-mail::message>
-# ¡Bienvenido {{ $name }}!
+    ¡Bienvenido {{ $nombre }}!
 
-Gracias por suscribirte en **{{ config('app.name') }}**.
-...
+    Gracias por suscribirte en {{ config('app.name') }}.
 </x-mail::message>

@@ -1,15 +1,15 @@
-app.controller('SubscriberListController', function ($scope, $timeout, SubscriberService) {
-  $scope.subscribers = [];
-  $scope.search = '';
+app.controller('SuscriptorListaController', function ($scope, $timeout, SuscriptorService) {
+  $scope.suscriptores = [];
+  $scope.buscador = '';
   $scope.currentPage = 1;
   $scope.lastPage = 1;
 
-  let searchTimeout;
+  let buscadorTimeout;
 
-  $scope.loadSubscribers = function () {
-    SubscriberService.getAll({ page: $scope.currentPage, search: $scope.search })
+  $scope.traerSuscriptores = function () {
+    SuscriptorService.suscriptorLista({ page: $scope.currentPage, buscador: $scope.buscador })
       .then(function (response) {
-        $scope.subscribers = response.data.data;
+        $scope.suscriptores = response.data.data;
         $scope.currentPage = response.data.current_page;
         $scope.lastPage = response.data.last_page;
       }, function (error) {
@@ -17,33 +17,33 @@ app.controller('SubscriberListController', function ($scope, $timeout, Subscribe
       });
   };
 
-  $scope.searchSubscribers = function () {
-    if (searchTimeout) {
-      $timeout.cancel(searchTimeout);
+  $scope.buscarSuscriptor = function () {
+    if (buscadorTimeout) {
+      $timeout.cancel(buscadorTimeout);
     }
 
-    searchTimeout = $timeout(function () {
+    buscadorTimeout = $timeout(function () {
       $scope.currentPage = 1;
-      $scope.loadSubscribers();
+      $scope.traerSuscriptores();
     }, 2000);
   };
 
   $scope.changePage = function (page) {
     if (page >= 1 && page <= $scope.lastPage) {
       $scope.currentPage = page;
-      $scope.loadSubscribers();
+      $scope.traerSuscriptores();
     }
   };
 
-  $scope.resetSearch = function () {
-    $scope.search = '';
+  $scope.resetBuscador = function () {
+    $scope.buscador = '';
     $scope.currentPage = 1;
-    $scope.loadSubscribers();
+    $scope.traerSuscriptores();
   };
 
-  $scope.sendWelcomeEmails = function () {
+  $scope.enviarMensajesMasivosBienvenida = function () {
     if (confirm("¿Enviar correos de bienvenida a todos los suscriptores?")) {
-      SubscriberService.sendWelcomeEmails()
+      SuscriptorService.suscriptorMensajeBievenidaMasivo()
         .then(function (response) {
           alert(response.data.message);
         }, function (error) {
@@ -53,5 +53,5 @@ app.controller('SubscriberListController', function ($scope, $timeout, Subscribe
     }
   };
 
-  $scope.loadSubscribers();
+  $scope.traerSuscriptores();
 });

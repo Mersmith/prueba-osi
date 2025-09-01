@@ -1,11 +1,11 @@
 <h2 class="titulo">Lista de Subscriptores</h2>
-<button ng-click="sendWelcomeEmails()" class="boton_correos">Enviar correos de bienvenida</button>
+<button ng-click="enviarMensajesMasivosBienvenida()" class="boton_correos">Enviar correos de bienvenida</button>
 
 <div class="cuerpo">
   <div class="filtros">
-    <input type="text" ng-model="search" placeholder="Buscar..." ng-change="searchSubscribers()" />
-    <button ng-click="searchSubscribers()" class="boton_buscar">Buscar</button>
-    <button ng-click="resetSearch()" class="boton_limpiar">Limpiar</button>
+    <input type="text" ng-model="buscador" placeholder="Buscar..." ng-change="buscarSuscriptor()" />
+    <button ng-click="buscarSuscriptor()" class="boton_buscar">Buscar</button>
+    <button ng-click="resetBuscador()" class="boton_limpiar">Limpiar</button>
   </div>
 
   <table class="tabla">
@@ -17,10 +17,10 @@
       </tr>
     </thead>
     <tbody>
-      <tr ng-repeat="sub in subscribers track by $index">
+      <tr ng-repeat="sub in suscriptores track by $index">
         <td>{{$index + 1}}</td>
-        <td>{{ sub.name }}</td>
-        <td>{{ sub.email }}</td>
+        <td>{{ sub.nombre }}</td>
+        <td>{{ sub.correo }}</td>
       </tr>
     </tbody>
   </table>

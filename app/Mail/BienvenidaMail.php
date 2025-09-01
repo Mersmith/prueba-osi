@@ -28,7 +28,7 @@ class BienvenidaMail extends Mailable
     public function envelope(): Envelope
     {
         return new Envelope(
-            subject: '¡Bienvenido ' . $this->subscriber->name . '!');
+            subject: '¡Bienvenido ' . $this->subscriber->nombre . '!');
     }
 
     /**
@@ -39,7 +39,7 @@ class BienvenidaMail extends Mailable
         return new Content(
             markdown: 'emails.bienvenida',
             with: [
-                'name' => $this->subscriber->name,
+                'nombre' => $this->subscriber->nombre,
             ]
         );
     }

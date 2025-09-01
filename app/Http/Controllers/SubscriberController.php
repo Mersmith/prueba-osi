@@ -12,10 +12,10 @@ class SubscriberController extends Controller
     {
         $query = Subscriber::query();
 
-        if ($request->has('search') && $request->search != '') {
-            $search = $request->search;
-            $query->where('name', 'like', "%$search%")
-                ->orWhere('email', 'like', "%$search%");
+        if ($request->has('buscador') && $request->buscador != '') {
+            $buscador = $request->buscador;
+            $query->where('nombre', 'like', "%$buscador%")
+                ->orWhere('correo', 'like', "%$buscador%");
         }
 
         $query->orderBy('id', 'desc');
@@ -27,8 +27,8 @@ class SubscriberController extends Controller
     public function store(Request $request)
     {
         $data = $request->validate([
-            'name' => 'required|string|max:120',
-            'email' => 'required|email|unique:subscribers,email',
+            'nombre' => 'required|string|max:120',
+            'correo' => 'required|email|unique:subscribers,correo',
         ]);
 
         return Subscriber::create($data);

@@ -32,7 +32,7 @@ class EnviarBienvenidaEmailJob implements ShouldQueue
     {
         $subscriber = Subscriber::find($this->subscriberId);
         if ($subscriber) {
-            Mail::to($subscriber->email)->send(new BienvenidaMail($subscriber));
+            Mail::to($subscriber->correo)->send(new BienvenidaMail($subscriber));
         }
     }
 }
