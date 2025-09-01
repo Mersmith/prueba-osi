@@ -1,14 +1,16 @@
-app.controller('SubscriberCreateController', function($scope, $http, $location) {
-    $scope.subscriber = {};
-    $scope.error = '';
+app.controller('SubscriberCreateController', function ($scope, $location, SubscriberService) {
+    $scope.subscriber = {
+        name: '',
+        email: '',
+    };
 
-    $scope.createSubscriber = function() {
-        $http.post('http://127.0.0.1:8000/api/subscribers', $scope.subscriber)
-        .then(function(response) {
-            alert('Suscriptor creado correctamente');
-            $location.path('/subscribers'); // redirige a la lista
-        }, function(error) {
-            $scope.error = error.data.message || 'Ocurrió un error';
-        });
+    $scope.createSubscriber = function () {
+        SubscriberService.create($scope.subscriber)
+            .then(function (response) {
+                alert('Suscriptor creado correctamente');
+                $location.path('/subscribers');
+            }, function (error) {
+                $scope.error = error.data.message || 'Ocurrió un error';
+            });
     };
 });
