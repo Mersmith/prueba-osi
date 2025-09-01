@@ -6,3 +6,13 @@ php artisan queue:table
 php artisan migrate
 
 php artisan make:mail BienvenidaMail --markdown=emails.bienvenida
+
+php artisan make:job EnviarBienvenidaEmailJob
+
+php artisan queue:work
+
+para pruebas primero:
+QUEUE_CONNECTION=database
+MAIL_MAILER=log
+
+

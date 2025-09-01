@@ -7,6 +7,9 @@ app.factory('SubscriberService', function ($http) {
     },
     create: function (subscriber) {
       return $http.post(baseUrl, subscriber);
+    },
+    sendWelcomeEmails: function () {
+      return $http.post(baseUrl + '/send-welcome-emails');
     }
   };
 });

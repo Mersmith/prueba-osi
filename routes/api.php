@@ -16,6 +16,8 @@ use App\Http\Controllers\SubscriberController;
 Route::get('/subscribers', [SubscriberController::class, 'index']);
 Route::post('/subscribers', [SubscriberController::class, 'store']);
 
+Route::post('/subscribers/send-welcome-emails', [SubscriberController::class, 'sendWelcomeEmails']);
+
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });

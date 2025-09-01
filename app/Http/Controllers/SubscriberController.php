@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Subscriber;
 use Illuminate\Http\Request;
+use App\Jobs\EnviarBienvenidaEmailJob;
 
 class SubscriberController extends Controller
 {
@@ -29,5 +30,16 @@ class SubscriberController extends Controller
         ]);
 
         return Subscriber::create($data);
+    }
+
+    public function sendWelcomeEmails()
+    {
+        $subscribers = Subscriber::all();
+
+        foreach ($subscribers as $subscriber) {
+            EnviarBienvenidaEmailJob::dispatch($subscriber->id);
+        }
+
+        return response()->json(['message' => 'Los correos se están enviando en segundo plano']);
     }
 }

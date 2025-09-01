@@ -41,5 +41,17 @@ app.controller('SubscriberListController', function ($scope, $timeout, Subscribe
     $scope.loadSubscribers();
   };
 
+  $scope.sendWelcomeEmails = function () {
+    if (confirm("¿Enviar correos de bienvenida a todos los suscriptores?")) {
+      SubscriberService.sendWelcomeEmails()
+        .then(function (response) {
+          alert(response.data.message);
+        }, function (error) {
+          console.error('Error al enviar correos', error);
+          alert('Ocurrió un error al enviar los correos');
+        });
+    }
+  };
+
   $scope.loadSubscribers();
 });
