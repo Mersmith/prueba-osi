@@ -1,3 +1,5 @@
+composer create-project laravel/laravel newsletter-api "10.*"
+
 php artisan make:model Subscriber -mfsc
 php artisan migrate:fresh --seed
 

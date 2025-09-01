@@ -1,0 +1,5 @@
+Database: noticier_osi
+User: noticier_osi
+Clave: prueba123546.
+
+cd /home/noticier/public_html && /usr/local/bin/php artisan queue:work --sleep=3 --tries=3 --timeout=60 >/dev/null 2>&1
