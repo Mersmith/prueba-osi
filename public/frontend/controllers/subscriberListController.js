@@ -1,8 +1,10 @@
-app.controller('SubscriberListController', function ($scope, SubscriberService) {
+app.controller('SubscriberListController', function ($scope, $timeout, SubscriberService) {
   $scope.subscribers = [];
   $scope.search = '';
   $scope.currentPage = 1;
   $scope.lastPage = 1;
+
+  let searchTimeout;
 
   $scope.loadSubscribers = function () {
     SubscriberService.getAll({ page: $scope.currentPage, search: $scope.search })
@@ -16,8 +18,14 @@ app.controller('SubscriberListController', function ($scope, SubscriberService) 
   };
 
   $scope.searchSubscribers = function () {
-    $scope.currentPage = 1; // reiniciar a la primera página
-    $scope.loadSubscribers();
+    if (searchTimeout) {
+      $timeout.cancel(searchTimeout);
+    }
+
+    searchTimeout = $timeout(function () {
+      $scope.currentPage = 1;
+      $scope.loadSubscribers();
+    }, 2000);
   };
 
   $scope.changePage = function (page) {
@@ -27,6 +35,11 @@ app.controller('SubscriberListController', function ($scope, SubscriberService) 
     }
   };
 
-  // Cargar inicial
+  $scope.resetSearch = function () {
+    $scope.search = '';
+    $scope.currentPage = 1;
+    $scope.loadSubscribers();
+  };
+
   $scope.loadSubscribers();
 });

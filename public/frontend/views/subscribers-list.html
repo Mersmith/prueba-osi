@@ -1,7 +1,8 @@
 <h2>Lista de Subscriptores</h2>
 
-<input type="text" ng-model="search" placeholder="Buscar..." />
+<input type="text" ng-model="search" placeholder="Buscar..." ng-change="searchSubscribers()" />
 <button ng-click="searchSubscribers()">Buscar</button>
+<button ng-click="resetSearch()">Limpiar</button>
 
 <ul>
   <li ng-repeat="sub in subscribers">
